@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="button" value="计算" onclick="calc()" />
+			<div id="result"></div>
+		</form>
+	</body>
+
+	<script type="text/javascript">
+		// 1、自定义函数
+		function calc() {
+			// 定义变量
+			let h = 0.1; //纸张高度
+			let c = 0; //折纸次数
+			let height = 8848000; //珠峰高度
+			// 2、循环结构
+			while (h <= height) {
+				//3、折纸一次
+				h = h * 2;
+				//4、折纸次数自增
+				c++;
+				console.log("第" + c + "次折纸" + "高度为" + h + "mm");
+				//5、折纸次数自增
+			}
+			// 6、循环结束
+			console.log("折纸" + c + "次后" + "高度大于8848000mm");
+			document.getElementById("result").innerHTML = "折纸" + c + "次后" + "高度大于8848000mm";
+		}
+	</script>
+
+</html>

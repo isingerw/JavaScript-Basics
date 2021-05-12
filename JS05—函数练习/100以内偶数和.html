@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="r1" placeholder="请输入数字1"/>
+			<input type="text" id="r2" placeholder="请输入数字2"/>
+			<input type="button" value="计算" onclick="jisuan()" />
+			<div id="result"></div>
+		</form>
+
+
+		<script type="text/javascript">
+			// 2.	自定义函数，求100以内的所有偶数的和.
+			function jisuan() {
+				let r1 = document.getElementById("r1").value;
+				let r2 = document.getElementById("r2").value;
+				r1 = parseInt(r1);
+				r2 = parseInt(r2);
+				if(isNaN(r1)){
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if(isNaN(r2)){
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if(r1>r2){
+					document.getElementById("result").innerHTML = "你输入的范围有误！";
+				}
+				let sum = 0;
+				for (let a = r1; a <= r2; a++) { //遍历所有数值。
+					if (a % 2 == 0) { //偶数
+					console.log(a);
+						sum +=a;
+						console.log(sum);
+						document.getElementById("result").innerHTML = sum;
+					}
+				}
+			}
+		</script>
+
+	</body>
+</html>

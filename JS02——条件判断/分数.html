@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!-- 设计界面 -->
+		<form action="" method="psot">
+			<input type="text" id="score" value="sds" />
+			<!-- 按钮 事件驱动 conclink() -->
+		</form>
+		
+		
+		
+		
+		<script type="text/javascript">
+			// 定义函数
+			// 输入
+			// 类型转换
+			
+			
+			// 用户输入分数
+			let a = prompt("请输入你的分数(0-100)", 0);
+			// 将输入的分数提交至控制台
+			console.log(a);
+			// 强转字符
+			a = parseFloat(a);
+			// 控制输入数字为1-100；、
+			while(!(a>0 && a<100)){
+				alert("请输入0-100的分数！")
+				a = prompt("请输入你的分数(0-100)", 0);
+				a = parseFloat(a);
+			}
+			// 条件判断
+			if (a >= 90 && a <= 100) {
+				console.log("你的分数为:" + a + "奖励两根雪糕！");
+			} else if (a >= 80) {
+				console.log("你的分数为:" + a + "奖励一根冰棒！");
+			} else if (a >= 70) {
+				console.log("你的分数为:" + a + "奖励女子单打！");
+			} else if (a >= 60) {
+				console.log("你的分数为:" + a + "奖励男子单打！");
+			} else if (a >= 0) {
+				console.log("你的分数为:" + a + "奖励男女组合双打！");
+			}
+		</script>
+	</body>
+</html>

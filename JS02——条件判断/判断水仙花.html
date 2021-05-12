@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 575px;
+				height: 200px;
+				background-color: aquamarine;
+				margin: auto;
+			}
+
+			.h2 {
+				align-content: center;
+				padding-left: 200px;
+			}
+
+			#number {
+				width: 350px;
+				height: 40px;
+				font-size: 25px;
+				margin-left: 5px;
+			}
+
+			#shuixianhua {
+				width: 200px;
+				height: 45px;
+			}
+
+			#msg {
+				width: 575px;
+				height: 50px;
+				background-color: aliceblue;
+				color: red;
+				font-size: larger;
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1、设计界面 -->
+		<div id="div1">
+			<form action="" method=" psot">
+				<h2 class="h2">水仙花数字判断</h2>
+				<input type="text" id="number" placeholder="请输入100-1000范围内的数字" />
+				<!-- 2、按钮 事件驱动 conclink() -->
+				<input type="button" id="shuixianhua" value="立即查询" onclick="inquire()" />
+				<!-- 3、js与dom交互 -->
+				<div id="msg"></div>
+			</form>
+		</div>
+
+	</body>
+
+
+	<script type="text/javascript">
+		// 4、自定义函数声明
+		function inquire() {
+			document.getElementById("msg").innerHTML = "";
+			// 5、输入框 得到页面上文本框text的score中的输入的值
+			let d = document.getElementById("number").value;
+			// 6、类型转换
+			d = parseInt(d);
+			// 7、控制输入数字为100-1000；
+			if (!(d >= 100 && d < 1000)) {
+				document.getElementById("msg").innerHTML = "请输入100-1000范围内的数字";
+				return; //函数后续代码停止执行；
+			}
+			// 8、水仙花的条件判断
+			let a = parseInt(d % 10); //个位数
+			console.log("个位a="+a);
+			let b = parseInt((d / 10) % 10); //十位数
+			console.log("十位a="+b);
+			let c = parseInt(d / 100); //百位数
+			console.log("百位a="+c);
+			if (a * a * a + b * b * b + c * c * c == d) {
+				document.getElementById("msg").innerHTML = d + "是水仙花数";
+			} else {
+				document.getElementById("msg").innerHTML = d + "不是水仙花数";
+			}
+		}
+	</script>
+
+
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="r1" placeholder="请输入数字1" />
+			<input type="text" id="r2" placeholder="请输入数字2" />
+			<input type="button" value="计算" onclick="jisuan()" />
+			<div id="result"></div>
+		</form>
+
+		<script type="text/javascript">
+			function jisuan() {
+				// 取值
+				let r1 = document.getElementById("r1").value;
+				let r2 = document.getElementById("r2").value;
+				// 强转
+				r1 = parseInt(r1);
+				r2 = parseInt(r2);
+				// 数值判断
+				if (isNaN(r1)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if (isNaN(r2)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				// 范围判断
+				if (r1 >= r2) {
+					document.getElementById("result").innerHTML = "你输入的范围有误！";
+				}
+				// 循环条件判断
+				let sum = 0;
+				for (let d = r1; d <= r2; d++) {
+					let a = parseInt(d % 10); //个位数
+					let b = parseInt((d / 10) % 10); //十位数
+					let c = parseInt(d / 100); //百位数
+					// 判断是否为水仙花数
+					if (a * a * a + b * b * b + c * c * c == d) {
+						// 累加
+						sum += d;
+						document.getElementById("result").innerHTML = ("100-1000的水仙花总和为:" + sum);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

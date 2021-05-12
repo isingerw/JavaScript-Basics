@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<!-- 	<button type="button" onclick="fun05()"></button> -->
+		<button type="button" value="点击" onclick="fun06(100)">多少</button>
+
+		<script type="text/javascript">
+			// 自定义一个函数，fun01()
+			function fun05(n) {
+				if (n == 1); {
+					return 1;
+				}
+				return fun05(n - 1) + n;
+			}
+
+			function fun06(n) {
+				let result = fun05(n);
+				console.log("fun==>" + result);
+			}
+		</script>
+
+	</body>
+</html>

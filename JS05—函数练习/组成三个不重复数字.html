@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="r1" placeholder="请输入数字1" />
+			<input type="text" id="r2" placeholder="请输入数字2" />
+			<input type="text" id="r3" placeholder="请输入数字3" />
+			<input type="text" id="r4" placeholder="请输入数字4" />
+			<input type="button" value="立即组成" onclick="jisuan()" />
+			<div id="result"></div>
+		</form>
+
+		<script type="text/javascript">
+			function jisuan() {
+				// 有1、2、3、4,一共四个数字，能组成多少个互不相同且无重复数字的三位数？都是多少？
+				// 取值
+				let r1 = document.getElementById("r1").value;
+				let r2 = document.getElementById("r2").value;
+				let r3 = document.getElementById("r3").value;
+				let r4 = document.getElementById("r4").value;
+				// 强转
+				r1 = parseInt(r1);
+				r2 = parseInt(r2);
+				r3 = parseInt(r3);
+				r4 = parseInt(r4);
+				// 数值判断
+				if (isNaN(r1)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if (isNaN(r2)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if (isNaN(r3)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if (isNaN(r4)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				// 判断
+				if (r1 >= r2 >= r3 >= r4) {
+					document.getElementById("result").innerHTML = "你输入的范围有误！";
+				}
+				// 条件判断
+				let star = 0;
+				for (let i = 1; i < 5; i++) {
+					for (let j = 1; j < 5; j++) {
+						for (let k = 1; k < 5; k++) {
+							if (i != j && j != k && i != k) {
+								star = i * 100 + j * 10 + k;
+								console.log(i * 100 + j * 10 + k);
+								document.getElementById("result").innerHTML += star + "<br/>";
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

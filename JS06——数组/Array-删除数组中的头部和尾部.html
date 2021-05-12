@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="number" placeholder="请输入一个数字" />
+			<input type="button" value="添加" onclick="addMumber()" />
+			<input type="button" value="删除数组第一个元素" onclick="removeElement('first')" />
+			<input type="button" value="删除数组最后一个元素" onclick="removeElement('last')" />
+			<div id="result"></div>
+		</form>
+		<script type="text/javascript">
+			// 1、定义一个数组
+			let array = [];
+			// 2、自定义函数addMumber()
+			function addMumber() {
+				// 3、获取用户text中输入的数值并字符强转
+				let number = parseInt(document.getElementById("number").value);
+				// 4、先判断当前要添加的值和数组中的元素相比是否重复
+				// indexOf 查找我们的数组中是否包含某个元素，如果包含返回特定的索引，不包含返回-1;
+				if (array.indexOf(number) != -1) {
+					alert("重复了！");
+					return;
+				}
+				// 7、添加后清空rusult页面的值；
+				document.getElementById("result").innerHTML = " ";
+				// 5、如果不重复将text中的值添加到数组
+				array.push(number);
+				// 6、将数组元素遍历并显示在<div id="result">中
+				array.forEach(function(item) {
+					console.log(item);
+					document.getElementById("result").innerHTML += item + "<br />"
+				})
+			}
+
+			function removeElement(pos) {
+				if (array.length > 0) {
+					if (pos == "first") {
+						let f = array.shift();
+						console.log("f" + f);
+					} else if (pos == "last") {
+						let p = array.pop();
+						console.log("p" + p);
+					}
+					console.log(array);
+					document.getElementById("result").innerHTML = " ";
+
+					// 将数组元素遍历并显示在div中
+					array.forEach(function(item) {
+						console.log(item);
+						document.getElementById("result").innerHTML += item + "<br />"
+					})
+				} else {
+					alert("数组中无元素！");
+				}
+			}
+		</script>
+	</body>
+</html>

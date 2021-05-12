@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		// 外循环打印行
+		for (let i = 1; i <= 10; i++) {
+			let star = " ";
+			// 内循环打印每行的列(*号的个数)
+			for (let j = 1; j <= i; j++) {
+				// log每次输出都换一行
+				// 每次打印之前先凭借好*字符串，再每一行集中打印一下
+				star = star + "*"
+			}
+			console.log(star);
+		}
+	</script>
+</html>

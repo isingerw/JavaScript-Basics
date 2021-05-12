@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#score {
+				width: 150px;
+				height: 30px;
+				font-size: larger;
+			}
+
+			#add {
+				width: 150px;
+				height: 40px;
+				font-size: larger;
+				background-color: #7FFF00;
+				color: black;
+			}
+
+			#del {
+				width: 150px;
+				height: 40px;
+				font-size: larger;
+				background-color: #ff0000;
+				color: black;
+			}
+
+			#singerw {
+				width: 150px;
+				height: 40px;
+				font-size: larger;
+			}
+
+			#result {
+				width: 500px;
+				height: 100px;
+				font-size: larger;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="shuri" action="" method="post">
+			<input type="text" id="score" placeholder="请输入学生分数" />
+			<button type="button" id="add" onclick="addScore()">添加分数</button>
+			<button type="button" id="del" onclick="chongxin()">清空所有成绩</button>
+			<button type="button" id="singerw" onclick="showMax()">最高分</button>
+			<button type="button" id="singerw" onclick="showMin()">最低分</button>
+			<button type="button" id="singerw" onclick="showAvg()">平均分</button>
+			<button type="button" id="singerw" onclick="showSortgao()">降序</button>
+			<button type="button" id="singerw" onclick="showSortdi()">升序</button>
+
+		</form>
+		<div id="result"></div>
+
+
+
+		<script type="text/javascript">
+			// 3.定义数组存取分数
+			let arrayscore = [];
+			// 1.自定义函数
+			function addScore() {
+				// 2.获取用户在text中输入的值并强转为数值类型
+				let score = parseInt(document.getElementById("score").value);
+
+				// 6.添加后清空rusult页面的值；
+				document.getElementById("result").innerHTML = " ";
+
+				// 7.如果输入非数字，提示错误
+				if (isNaN(score)) {
+					document.getElementById("result").innerHTML = "你输入的是非数字，请输入正确的数字分数！" + "<br />";
+					return;
+					// 8.分数范围判断，小于0或大于100提示错误
+				} else if (!(score >= 0 && score <= 100)) {
+					document.getElementById("result").innerHTML = "你输入的分数范围有误，请输入0-100范围内的分数！" + "<br />";
+				} else {
+					// 4.将text中的值添加到数组
+					arrayscore.push(score);
+					console.log(arrayscore);
+				}
+
+				// 5.将数组元素遍历并显示在<div id="result">中
+				arrayscore.forEach(function(item) {
+					document.getElementById("result").innerHTML += item + "<br />";
+				})
+			}
+
+			function chongxin() {
+				arrayscore.splice(0, arrayscore.length); //清空数组 
+				console.log(arrayscore); // 输出 []，空数组，即被清空了
+				document.getElementById("result").innerHTML = "";
+			}
+
+
+			// 判断数组中分数的最高分
+			function showMax() {
+				// 获取array中的最大值
+				// 假设数组中第一个为最大值，将最大值存入自定义max中
+				let max = arrayscore[0];
+				// 遍历比较后面所有数组元素；
+				// 如果max < array [i] ，将array [i] == max;
+				for (let i = 1; i < arrayscore.length; i++) {
+					if (max < arrayscore[i]) {
+						max = arrayscore[i];
+					}
+					document.getElementById("result").innerHTML = ("最高分为：" + max + "分");
+				}
+			}
+
+			// 判断数组中分数的最低分
+			function showMin() {
+				// 获取array中的最小值
+				// 假设数组中第一个为最小值，将最小值存入自定义max中
+				let min = arrayscore[0];
+				// 遍历比较后面所有数组元素；
+				// 如果min > array [i] ，将array [i] = min;
+				for (let i = 1; i < arrayscore.length; i++) {
+					if (min > arrayscore[i]) {
+						min = arrayscore[i];
+					}
+					document.getElementById("result").innerHTML = ("最低分为：" + min + "分");
+				}
+			}
+
+			// 判断数组中分数的平均分
+			function showAvg() {
+				// 自定义平均数，将数组的平均数存储到vag中
+				let sum = 0;
+				// 遍历比较后面所有数组元素；
+				for (let i = 0; i < arrayscore.length; i++) {
+					sum += arrayscore[i];
+				}
+				let avg = sum / arrayscore.length;
+				document.getElementById("result").innerHTML = ("平均数为：" + avg + "分");
+			}
+
+			// 数组中分数排序，降序！
+			function showSortgao() {
+				arrayscore.sort(function(a, b) {
+					return b - a;
+				});
+				console.log(arrayscore);
+				document.getElementById("result").innerHTML = ("成绩从高到底排序为" + arrayscore);
+			}
+
+			// 数组中分数排序，降序！
+			function showSortdi() {
+				arrayscore.sort(function(a, b) {
+					return a - b;
+				});
+				console.log(arrayscore);
+				document.getElementById("result").innerHTML = ("成绩从低到高升序为" + arrayscore);
+			}
+		</script>
+	</body>
+</html>

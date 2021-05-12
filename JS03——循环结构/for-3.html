@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="button" value="输出" onclick="calc()" />
+			<div id="result"></div>
+		</form>
+
+	</body>
+	<!-- 操场100多人,三人一组多1人,四人一组多2人,五人一组多3人 -->
+	<script type="text/javascript">
+		// 自定义变量
+		function calc() {
+			let str ="";
+			// 循环条件
+			for (i = 101;i <= 199;i++) {
+				// 条件判断,满足则输出结果
+				if (i % 3 == 1 && i % 4 == 2 && i % 5 == 3) {
+					console.log("人数可能为" + i + "人");
+					str = str +i+" "; 
+				}
+			}
+			document.getElementById("result").innerHTML = str;
+		}
+	</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="num" placeholder="请输入一个正整数" />
+			<input type="button" value="求和" onclick="calc()" />
+			<div id="result"></div>
+		</form>
+	</body>
+
+	<script type="text/javascript">
+		function calc() {
+			// 获取文本框中输入的值；
+			let num = document.getElementById("num").value;
+			num = parseInt(num);
+			let i = 1; //循环变量
+			let sum = 0; //定义一个变量和sum，初始值为0；
+			while (i <= num) { //循环条件；一定在某一刻为false
+				// 累加
+				sum = sum + i; // sum+ = i;
+				i++;
+			}
+			document.getElementById("result").innerHTML = sum;
+		}
+	</script>
+</html>

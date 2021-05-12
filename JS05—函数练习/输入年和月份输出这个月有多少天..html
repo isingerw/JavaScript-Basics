@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="years" placeholder="请输入年份" />
+			<input type="text" id="month" placeholder="请输入月份" />
+			<input type="button" value="立即计算" onclick="getDays()" />
+			<div id="result"></div>
+		</form>
+
+		<script type="text/javascript">
+			function getDays() {
+				// 取值
+				let years = document.getElementById("years").value;
+				let month = document.getElementById("month").value;
+				// 强转
+				years = parseInt(years);
+				month = parseInt(month);
+				// 数值判断
+				if (isNaN(years)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				if (isNaN(month)) {
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				//获取用户输入年和月份
+				if (month < 1 || month > 12) {
+					alert("月份输入不合法");
+					return;
+				}
+				if (years <= 0 || years >= 9999) {
+					alert("年份输入不合法");
+					return;
+				}
+				let day = 0;
+				day = parseInt(day);
+				switch (month) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						day = 31;
+						break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						day = 30;
+						break;
+
+					case 2:
+						if ((years % 4 == 0 && years % 100 != 0) || (years % 400 == 0)) {
+							day = 29;
+						} else {
+							day = 28;
+						}
+						break;
+					default:
+						break;
+				}
+				document.getElementById("result").innerHTML = years + "年" + month + "月" + "有" + day + "天";
+			}
+		</script>
+	</body>
+</html>

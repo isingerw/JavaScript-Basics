@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#mog {
+				width: 100%;
+				height: 100%;
+				/* 				margin-top: -20px;
+				margin-left: -10px; */
+			}
+
+			#pic {
+				width: 30%;
+				height: 30%;
+
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="mog">
+			<!-- 默认图片 -->
+			<img src="img/01.jpg" id="pic">
+		</div>
+
+
+		<script type="text/javascript">
+			// 数组定义，存储图片路径
+			let arraypic = ['img/01.jpg', 'img/02.jpg', 'img/03.jpg', 'img/04.jpg'];
+
+			// 定义索引，从1开始
+			let index = 1;
+			setInterval(function() {
+				// 设置img的src是数组中的某个元素
+				document.getElementById("pic").src = arraypic[index];
+				
+				//如果已经是最后一张了，index变成0； 
+				if (index == 3) {
+					index = 0;
+				} else {
+					index++;
+				}
+			}, 2000); //每隔2秒执行一次函数
+		</script>
+
+	</body>
+</html>

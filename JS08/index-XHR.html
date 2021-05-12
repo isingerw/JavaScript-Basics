@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<button type="button" onclick="qingqiu()">请求</button>
+	<div id="result"></div>
+	
+	<body>
+		<script type="text/javascript">
+			// 创建XMLHttpRequest对象
+			var xhr = new XMLHttpRequest();
+			// 建立一个连接
+			xhr.open("GET", "https://api.nxvav.cn/api/xianyan", true);
+
+			// 发送请求,Get请求传数据send写参数，不穿数据写Null
+			xhr.send(null)
+			// 
+			xhr.onload = function qingqiu() {
+				// ?处理返回的数据信息
+				if(xhr.readyState === xhr.DONE){
+					if(xhr.status === 200){
+						console.log(xhr.responseText);
+						document.getElementById("result").innerHTML += xhr.responseText;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

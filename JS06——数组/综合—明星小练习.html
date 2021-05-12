@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100%;
+				height: 100%;
+				background-image;
+			}
+			#remark{
+				font-size: larger;
+			}
+			
+			#image{
+				width: 35%;
+				float: left;
+			}
+			
+			#video{
+				
+				width: 525px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<select onchange="ShowStar(this.value)">
+			<option value="0">--请选择--</option>
+			<option value="1">张子枫</option>
+			<option value="2">迪丽热巴</option>
+			<option value="3">古力娜扎</option>
+		</select>
+		<div id="div1">
+			<p><a id="remark"> 默认页面 </a></p>
+			<p><img id="image" src="img/reba.jpg" /></p>
+			<video id="video" width="600" height="400" controls="controls">
+				<source src="video/zifeng.mp4" type="audio/mp4"></source>
+			</video>
+		</div>
+
+
+		<script type="text/javascript">
+			// 用数组来存取文字
+			var stars = [];
+			stars[0] = "请选择一位明星";
+			stars[1] = "子枫妹妹，我爱你";
+			stars[2] = "热巴热巴我爱你";
+			stars[3] = "古力娜扎大长腿";
+			// 用数组来存取图片
+			var starimage = ['img/reba.jpg', 'img/zifen.jpg', 'img/reba.jpg', 'img/nazha.jpg'];
+			// 用数组来存取视频
+			var starvideo = ['video/reba.mp4', 'video/zifeng.mp4','video/reba.mp4','video/nazha.mp4'];
+			// 自定义函数，采用Index参数
+			function ShowStar(index) {
+				document.getElementById("remark").innerHTML = stars[index];
+				document.getElementById("image").src = starimage[index];
+				document.getElementById("video").src = starvideo[index];
+			}
+		</script>
+
+	</body>
+</html>

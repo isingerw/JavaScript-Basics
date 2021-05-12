@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="mog">
+		</div>
+		
+		<script type="text/javascript">
+			let data1 = new Date();
+			console.log(data1);
+			console.log(data1.getFullYear());
+			console.log(data1.getMonth());
+			console.log(data1.getDate());
+			console.log(data1.getDay());
+			console.log(data1.getHours());
+			console.log(data1.getMinutes());
+			console.log(data1.getSeconds());
+			
+			function show(){
+				document.getElementById("mog").innerHTML = new Date().toLocaleDateString();
+			}
+			
+			setInterval("show()",1000);
+			
+		</script>
+	</body>
+</html>

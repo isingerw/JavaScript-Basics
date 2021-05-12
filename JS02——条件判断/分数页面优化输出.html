@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>分数页面优化输出</title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<!-- 1、设置页面 -->
+			<input type="text" id="score" placeholder="请输入你的分数" />
+			<!-- 2、设置事件驱动提交按钮 -->
+			<input type="button" name="anniu" value="领取奖励" onclick="jiangli()" />
+			<!-- js与dom交互 -->
+			<div id="msg"></div>
+		</form>
+	</body>
+	<script type="text/javascript">
+		// 3、自定义函数,函数声明
+		function jiangli() {
+			// div中msg初始化
+			document.getElementById("msg").innerHTML = "";
+			// 4、输入框 得到页面上文本框text的score中的输入的值
+			let a = document.getElementById("score").value;
+			// 5、类型转换
+			a = parseFloat(a);
+			// 6、控制输入数字为1-100；
+			if (!(a >= 0 && a <= 100)) {
+				document.getElementById("msg").innerHTML = "请输入0-100范围内的分数！";
+				return;
+			}
+			// 7、分数a的条件判断
+			let msg = ""
+			if (a >= 90 && a <= 100) {
+				msg = "奖励两根雪糕！";
+			} else if (a >= 80) {
+				msg = "奖励一根冰棒！";
+			} else if (a >= 70) {
+				msg = "奖励女子单打！";
+			} else if (a >= 60) {
+				msg = "奖励男子单打！";
+			} else if(a >= 0) {
+				msg = "奖励男女组合双打！";
+			}
+			document.getElementById("msg").innerHTML = msg;
+		}
+	</script>
+</html>

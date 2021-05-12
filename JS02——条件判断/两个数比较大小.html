@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 获取第一个数字，提示用户输入第一个数字
+			let a = prompt("请输入数字a", 0);
+			// 第一个数字提交到控制台
+			console.log(a);
+			// 获取第二个数字，提示用户输入第二个数字
+			let b = prompt("请输入数字b", 0);
+			// 第二个数字提交到控制台
+			console.log(b);
+			// 将字符串类型强转为数值类型
+			a = parseFloat(a);
+			b = parseFloat(b);
+			// 判断 当a>b时，输出a最大
+			if (a > b) {
+				console.log("a = " + a + "是最大值;");
+				// 判断 当a=b时，输出两数相等
+			} else if (a == b) {
+				console.log("a和b相等;");
+				// 判断 当a<b时，输出b最大
+			} else {
+				console.log("b = " + b + "b是最大值;");
+			}
+		</script>
+	</body>
+</html>

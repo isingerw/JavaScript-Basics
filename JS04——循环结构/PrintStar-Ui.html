@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="num" />
+			<input type="button" value="打印" onclick="dayin()" />
+			<div id="msg"></div>
+		</form>
+	</body>
+
+	<script type="text/javascript">
+		function dayin() {
+			let num  = document.getElementById("num").value;
+			num = parseInt(num);
+			// 外循环打印行
+			for (let i = 1; i <= num; i++) {
+				let star = " ";
+				// 内循环打印每行的列(*号的个数)
+				for (let j = 1; j <= i; j++) {
+					// log每次输出都换一行
+					// 每次打印之前先凭借好*字符串，再每一行集中打印一下
+					star = star + "*"
+				}
+				// 打印方法 ，输出到新的页面
+				document.getElementById("msg").innerHTML = star + "<br/>";
+			}
+		}
+	</script>
+</html>

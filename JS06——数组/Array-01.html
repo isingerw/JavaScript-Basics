@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			// 定义数组
+			let array01 = ['apple','banana'];
+			// 访问数组元素
+			console.log(array01);
+			// 下标访问
+			console.log(array01[0]+";"+array01[1]);
+			
+			// forEach遍历数组
+			array01.forEach(function(item,index){
+				console.log(item+";"+index);
+			})
+			// for遍历数组
+			for(let i = 0; i < array01.length; i++){
+				console.log(array01[i]+";"+i);
+			}
+			
+		</script>
+		
+	</body>
+</html>

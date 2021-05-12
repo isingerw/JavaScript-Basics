@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		// 获取第一个数字，提示用户输入第一个数字
+		let a = prompt("请输入数字a", 0);
+		// 第一个数字提交到控制台
+		console.log(a);
+
+		// 获取第二个数字，提示用户输入第二个数字
+		let b = prompt("请输入数字b", 0);
+		// 第二个数字提交到控制台
+		console.log(b);
+
+		// 获取第三个数字，提示用户输入第三个数字
+		let c = prompt("请输入数字c", 0);
+		// 第三个数字提交到控制台
+		console.log(c);
+		// 将字符串类型强转为数值类型
+		a = parseFloat(a);
+		b = parseFloat(b);
+		c = parseFloat(c);
+		// 比较a与<b>，并将最大值赋值给c;
+		if (a >= b) {
+			max = a;
+		} else {
+			max = b;
+		}
+		// 用max与c比较；
+		if (max >= c == false) {
+			max = c;
+		}
+		console.log("三个数中最大值为：" + max);
+	</script>
+	<body>
+
+
+
+	</body>
+</html>

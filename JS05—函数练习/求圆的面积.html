@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="number" placeholder="请输入圆的半径"/>
+			<input type="button" value="计算" onclick="jisuan()"/>
+			<div id="result"></div>
+		</form>
+		
+		<script type="text/javascript">
+			// 1.	文本框输入圆的半径，求圆的面积(功能),页面显示结果: 配合按钮事件。
+			// 自定义函数
+			function jisuan(){
+				// 获取text中的值
+				let number = document.getElementById("number").value;
+				// 强转
+				number = parseFloat(number);
+				if(isNaN(number)){
+					document.getElementById("result").innerHTML = "请输入数字，你输入的是非数字！"
+					return;
+				}
+				// 求圆的面积
+				let m = Math.PI * number * number;
+				document.getElementById("result").innerHTML = m;
+			}
+		</script>
+		
+	</body>
+</html>

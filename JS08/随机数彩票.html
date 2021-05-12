@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="GetiniArray">初始化数字</button>
+		<button type="button" onclick="GetLuckArray">初始化数字</button>
+		<div id="result"></div>
+
+		<script type="text/javascript">
+			let array = [];
+
+			function GetiniArray() {
+				for (let i = 0; i < 22; i++) {
+					array[i] = i + 1;
+				}
+				
+				console.log("init" + array);
+			}
+
+
+			function GetLuckArray() {
+				GetiniArray();
+				let LuckArray = [];
+				for (let i = 0; i < 5; i++) {
+					let luckIndex = Math.floor(Math.random() * 22);
+					if (LuckArray.indexOf(array[luckIndex]) != -1) {
+						i--;
+						continue;
+					}
+					LuckArray.push(array[luckIndex]);
+				}
+				document.getElementById("result").innerHTML = LuckArray;
+				console.log(LuckArray);
+			}
+		</script>
+	</body>
+</html>

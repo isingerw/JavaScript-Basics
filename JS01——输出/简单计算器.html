@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<h1></h1>
+		<form action="" method="post">
+			<input type="text" id="num1" required="required" placeholder="请输入数字1" />
+			<select id="op">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<input type="text" id="num2" required="required" placeholder="请输入数字2" />
+			<input type="button"  value="=" onclick="calc()"/>
+			<input type="text" id="result" value="0" />
+		</form>
+		
+		<script type="text/javascript">
+			function calc(){
+				// 函数就是很多行代码放在一起，能完成特定的功能的一组代码段
+				// 1、获取第一个文本框的值；
+				let num1 = document.getElementById("num1").value;
+				// 输出控制台
+				console.log("num1 :"+num1);
+				
+				// 2、获取用户选择的值；
+				let op = document.getElementById("op").value;
+				// 输出控制台
+				console.log("op :"+op);
+				
+				// 3、获取第二个文本框的值；
+				let num2 = document.getElementById("num2").value;
+				// 输出控制台
+				console.log("num2 :"+op);
+				
+				// 对获取到得值进行条件判断  一个=为赋值，两个==为比较
+				if (num1=="") {
+					// 提示用户输入
+					alert("请输入第一个数字")
+					return;
+				}
+				
+				if (num2=="") {
+					// 提示用户输入
+					alert("请输入第二个数字")
+					return;
+				} 
+				// 4、根据获取的1 2 3 三个值进行计算；
+				// 方案1：简单
+				console.log(eval(num1+op+num2));  // eval()计算方法
+				// 方案2：复杂
+				
+				
+				// 5、将计算的结果显示在result的；
+				let result = document.getElementById("result").value = eval(num1+op+num2);
+			}
+		</script>
+	</body>
+	
+</html>

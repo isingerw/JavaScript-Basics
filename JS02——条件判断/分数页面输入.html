@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#score{
+				width: 200px;
+				height: 40px;
+			}
+			#anniu{
+				width: 150px;
+				height: 46px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1、设计界面 -->
+		<form action="" method="psot">
+			<!-- 分数输入文本框 -->
+			<input type="text" id="score" placeholder="请输入你的分数" />
+			<!-- 2、按钮 事件驱动 conclink() -->
+			<input type="button" id="anniu" value="领取奖励" onclick="jiangli()"/>
+			<!-- js与dom交互 -->
+			<div id="msg"></div>
+		</form>
+		<script type="text/javascript">
+			// 3、自定义函数,函数声明
+			function jiangli(){
+				document.getElementById("msg").innerHTML = "";
+				// 4、输入框 得到页面上文本框text的score中的输入的值
+				let a = document.getElementById("score").value;
+				// 5、类型转换
+				a = parseFloat(a);
+				
+				// 6、控制输入数字为1-100；
+				if(!(a>=0 && a<=100)){
+					document.getElementById("msg").innerHTML = "输入的范围应该在0-100之间!";
+					return;
+				}
+				let msg = "";
+				
+				// 7、分数a的条件判断
+				if (a >= 90 && a <= 100) {
+					msg = "奖励两根雪糕！";
+				} else if (a >= 80) {
+					msg = "奖励一根冰棒！";
+				} else if (a >= 70) {
+					msg = "奖励女子单打！";
+				} else if (a >= 60) {
+					msg = "奖励男子单打！";
+				} else if (a >= 0) {
+					msg = "奖励男女组合双打！";
+				}
+				// 得到页面上div中msg的值
+				document.getElementById("msg").innerHTML = msg;
+			}
+		</script>
+		
+	</body>
+</html>
